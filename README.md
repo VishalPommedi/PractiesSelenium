@@ -1,2 +1,2 @@
 # PractiesSelenium
-I am going to upload my selenium practies code in this repo
+I am going to upload my selenium practies code in this repository.
