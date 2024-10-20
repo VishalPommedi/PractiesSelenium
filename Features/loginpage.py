@@ -5,9 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
+# Login page functionality
 def Partner_Login():
     
     # intilize driver
+    global driver 
     driver = webdriver.Chrome()
     driver.maximize_window()
 
@@ -40,7 +43,29 @@ def Partner_Login():
     SignIn_Button.click()
     print(f'Clicked on the login button')
 
+    # Verify the user
+    UserRole = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserRole_Xpath)))
+
+    Role = UserRole.text
+
+    if Role == "PARTNER":
+        print(f'Login Successful with the {Role}')
+    else:
+        print(f'Login Failure!')
+
     time.sleep(10)
 
 
+# Logout from the page
+def Logout():
+
+    UserButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserButton_Xpath)))
+    UserButton.click()
+    time.sleep(5)
+    SignOutButton = driver.find_element(By.XPATH, Locators_List.SignOutButton_Button)
+    SignOutButton.click()
+    time.sleep(10)
+    driver.quit
+
 Partner_Login()
+Logout()
