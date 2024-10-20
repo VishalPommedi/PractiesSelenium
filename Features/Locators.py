@@ -12,3 +12,11 @@ class Locators_List:
     UserName_Xpath = "//input[@type='email']"
     Password_Xpath = "//input[@id='password']"
     SignIn_Button = "//button[@type='submit']"
+
+    # User role on Dashboard page
+
+    UserButton_Xpath = "//button[@id='page-header-user-dropdown']"
+
+    UserRole_Xpath = "//button[@type='button']//span//span[@class='d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text']"
+
+    SignOutButton_Button = "//span[normalize-space()='Sign Out']"
