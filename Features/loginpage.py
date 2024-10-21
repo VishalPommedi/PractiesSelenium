@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 # Login page functionality
-def Partner_Login():
+def Partner_Login(username, password):
     
     # intilize driver
     global driver 
@@ -32,12 +32,12 @@ def Partner_Login():
     print(Welcome_Message.text)
 
     Input_EmailID = driver.find_element(By.XPATH, Locators_List.UserName_Xpath)
-    Input_EmailID.send_keys(Locators_List.Partner_Username)
-    print(f'Enter User Name: {Locators_List.Partner_Username}')
+    Input_EmailID.send_keys(username)
+    print(f'Enter User Name: {username}')
 
     Input_Password = driver.find_element(By.XPATH, Locators_List.Password_Xpath)
-    Input_Password.send_keys(Locators_List.Password)
-    print(f'Enter Password: {Locators_List.Password}')
+    Input_Password.send_keys(password)
+    print(f'Enter Password: {password}')
 
     SignIn_Button = driver.find_element(By.XPATH, Locators_List.SignIn_Button)
     SignIn_Button.click()
@@ -67,10 +67,37 @@ def ReadUserProfileData():
     print('clicked on the user profile')
     time.sleep(2)
 
-    ProfileDataRowCount = driver.find_elements(By.XPATH, Locators_List.UserProfileDataRows_Xpath)
-    row_count = len(ProfileDataRowCount)
-    print(f'count of rows:{row_count}')
-    # for row in range(row_count):
+    try:
+        ProfileDataRowCount = driver.find_elements(By.XPATH, Locators_List.UserProfileDataRows_Xpath)
+        row_count = len(ProfileDataRowCount)
+        print(f'count of rows:{row_count}')
+
+        profile_data = {}
+
+        for i in range(1, row_count+1):
+            header = driver.find_element(By.XPATH, f"//div[@class='table-responsive']//table//tbody//tr[{i}]//th")
+            header = header.text
+
+            profiledata = driver.find_element(By.XPATH, f"//div[@class='table-responsive']//table//tbody//tr[{i}]//td" )
+            data = profiledata.text
+
+            profile_data[header] = data
+    
+        print(profile_data)
+        
+    except Exception as e:
+        print('error occured at reading the data on profile pge')
+        print(f'Error: {e}')
+
+    
+
+
+    except Exception as e:
+
+        print(e)    
+           
+        
+
     time.sleep(5)
 
         
@@ -89,6 +116,6 @@ def Logout():
     print('close the browser')
 
 
-Partner_Login()
+Partner_Login("Tirupati", "Test@12345")
 ReadUserProfileData()
 Logout()
