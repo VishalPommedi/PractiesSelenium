@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 # Login page functionality
-def Partner_Login():
+def Partner_Login(username, password):
     
     # intilize driver
     global driver 
@@ -32,12 +32,12 @@ def Partner_Login():
     print(Welcome_Message.text)
 
     Input_EmailID = driver.find_element(By.XPATH, Locators_List.UserName_Xpath)
-    Input_EmailID.send_keys(Locators_List.Partner_Username)
-    print(f'Enter User Name: {Locators_List.Partner_Username}')
+    Input_EmailID.send_keys(username)
+    print(f'Enter User Name: {username}')
 
     Input_Password = driver.find_element(By.XPATH, Locators_List.Password_Xpath)
-    Input_Password.send_keys(Locators_List.Password)
-    print(f'Enter Password: {Locators_List.Password}')
+    Input_Password.send_keys(password)
+    print(f'Enter Password: {password}')
 
     SignIn_Button = driver.find_element(By.XPATH, Locators_List.SignIn_Button)
     SignIn_Button.click()
@@ -54,18 +54,68 @@ def Partner_Login():
         print(f'Login Failure!')
 
     time.sleep(10)
+# Read user profile data
+def ReadUserProfileData():
+
+    UserButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserButton_Xpath)))
+    UserButton.click()
+    print('Clicked on the User Button')
+    time.sleep(2)
+
+    UserProfileButton = driver.find_element(By.XPATH, Locators_List.UserProfileButton_Xpath)
+    UserProfileButton.click()
+    print('clicked on the user profile')
+    time.sleep(2)
+
+    try:
+        ProfileDataRowCount = driver.find_elements(By.XPATH, Locators_List.UserProfileDataRows_Xpath)
+        row_count = len(ProfileDataRowCount)
+        print(f'count of rows:{row_count}')
+
+        profile_data = {}
+
+        for i in range(1, row_count+1):
+            header = driver.find_element(By.XPATH, f"//div[@class='table-responsive']//table//tbody//tr[{i}]//th")
+            header = header.text
+
+            profiledata = driver.find_element(By.XPATH, f"//div[@class='table-responsive']//table//tbody//tr[{i}]//td" )
+            data = profiledata.text
+
+            profile_data[header] = data
+    
+        print(profile_data)
+        
+    except Exception as e:
+        print('error occured at reading the data on profile pge')
+        print(f'Error: {e}')
+
+    
 
 
+    except Exception as e:
+
+        print(e)    
+           
+        
+
+    time.sleep(5)
+
+        
 # Logout from the page
 def Logout():
 
     UserButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserButton_Xpath)))
     UserButton.click()
+    print('Clicked on the User Button')
     time.sleep(5)
     SignOutButton = driver.find_element(By.XPATH, Locators_List.SignOutButton_Button)
     SignOutButton.click()
+    print('signout from the user')
     time.sleep(10)
-    driver.quit
+    driver.close()
+    print('close the browser')
 
-Partner_Login()
+
+Partner_Login("Tirupati", "Test@12345")
+ReadUserProfileData()
 Logout()
