@@ -20,3 +20,7 @@ class Locators_List:
     UserRole_Xpath = "//button[@type='button']//span//span[@class='d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text']"
 
     SignOutButton_Button = "//span[normalize-space()='Sign Out']"
+
+    # User profile
+    UserProfileButton_Xpath = "//a[@routerlink='/user-profile']"
+    UserProfileDataRows_Xpath = "//div[@class='table-responsive']//table//tbody//tr"

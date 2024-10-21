@@ -54,18 +54,41 @@ def Partner_Login():
         print(f'Login Failure!')
 
     time.sleep(10)
+# Read user profile data
+def ReadUserProfileData():
 
+    UserButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserButton_Xpath)))
+    UserButton.click()
+    print('Clicked on the User Button')
+    time.sleep(2)
 
+    UserProfileButton = driver.find_element(By.XPATH, Locators_List.UserProfileButton_Xpath)
+    UserProfileButton.click()
+    print('clicked on the user profile')
+    time.sleep(2)
+
+    ProfileDataRowCount = driver.find_elements(By.XPATH, Locators_List.UserProfileDataRows_Xpath)
+    row_count = len(ProfileDataRowCount)
+    print(f'count of rows:{row_count}')
+    # for row in range(row_count):
+    time.sleep(5)
+
+        
 # Logout from the page
 def Logout():
 
     UserButton = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators_List.UserButton_Xpath)))
     UserButton.click()
+    print('Clicked on the User Button')
     time.sleep(5)
     SignOutButton = driver.find_element(By.XPATH, Locators_List.SignOutButton_Button)
     SignOutButton.click()
+    print('signout from the user')
     time.sleep(10)
-    driver.quit
+    driver.close()
+    print('close the browser')
+
 
 Partner_Login()
+ReadUserProfileData()
 Logout()
