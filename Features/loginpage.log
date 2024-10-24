@@ -1,0 +1,48 @@
+2024-10-24 22:05:53,548 - INFO - DB Connected successfully
+2024-10-24 22:05:55,321 - INFO - I launch chrome browser
+2024-10-24 22:05:57,445 - INFO - Open https://staging.servcrust.com/
+2024-10-24 22:05:59,364 - INFO - Clicked on Login Button
+2024-10-24 22:05:59,449 - INFO - Welcome to Order Management System.
+2024-10-24 22:05:59,533 - INFO - I Entered the User Name: Hanuman
+2024-10-24 22:05:59,621 - INFO - I Entered the Password: Test@1234
+2024-10-24 22:05:59,909 - INFO - Clicked on the login button
+2024-10-24 22:06:04,392 - INFO - Login Successful with the PARTNER
+2024-10-24 22:06:14,581 - INFO - I Clicked on the user
+2024-10-24 22:06:16,865 - INFO - I Clicked on Profile
+2024-10-24 22:06:18,897 - INFO - count of rows:8
+2024-10-24 22:06:19,556 - INFO - {'Company:': 'HANUMAN STONE CRUSHER', 'Name:': 'Hanuman', 'Role:': 'Partner', 'Status:': 'Active', 'Email:': 'dihaj91874@wikfee.com', 'Mobile:': '9059659999', 'Notifications:': 'Disabled', 'Created on:': '27-12-2023'}
+2024-10-24 22:06:24,615 - INFO - I Clicked on the User Botton
+2024-10-24 22:06:29,751 - INFO - Signout from the user
+2024-10-24 22:06:39,951 - INFO - Close the browser
+2024-10-24 22:06:47,122 - INFO - DB Connected successfully
+2024-10-24 22:06:48,849 - INFO - I launch chrome browser
+2024-10-24 22:06:49,895 - INFO - Open https://staging.servcrust.com/
+2024-10-24 22:06:51,539 - INFO - Clicked on Login Button
+2024-10-24 22:06:51,633 - INFO - Welcome to Order Management System.
+2024-10-24 22:06:51,828 - INFO - I Entered the User Name: Hanuman
+2024-10-24 22:06:51,917 - INFO - I Entered the Password: Test@1234
+2024-10-24 22:06:52,198 - INFO - Clicked on the login button
+2024-10-24 22:06:56,573 - INFO - Login Successful with the PARTNER
+2024-10-24 22:07:06,692 - INFO - I Clicked on the user
+2024-10-24 22:07:08,821 - INFO - I Clicked on Profile
+2024-10-24 22:07:10,862 - INFO - count of rows:8
+2024-10-24 22:07:11,321 - INFO - {'Company:': 'HANUMAN STONE CRUSHER', 'Name:': 'Hanuman', 'Role:': 'Partner', 'Status:': 'Active', 'Email:': 'dihaj91874@wikfee.com', 'Mobile:': '9059659999', 'Notifications:': 'Disabled', 'Created on:': '27-12-2023'}
+2024-10-24 22:07:16,417 - INFO - I Clicked on the User Botton
+2024-10-24 22:07:21,550 - INFO - Signout from the user
+2024-10-24 22:07:31,756 - INFO - Close the browser
+2024-10-24 22:08:19,635 - INFO - DB Connected successfully
+2024-10-24 22:08:21,667 - INFO - I launch chrome browser
+2024-10-24 22:08:23,417 - INFO - Open https://staging.servcrust.com/
+2024-10-24 22:08:25,882 - INFO - Clicked on Login Button
+2024-10-24 22:08:26,005 - INFO - Welcome to Order Management System.
+2024-10-24 22:08:26,100 - INFO - I Entered the User Name: Superadmin
+2024-10-24 22:08:26,184 - INFO - I Entered the Password: Test@12345
+2024-10-24 22:08:26,429 - INFO - Clicked on the login button
+2024-10-24 22:08:31,462 - ERROR - Login Failure!
+2024-10-24 22:08:42,677 - INFO - I Clicked on the user
+2024-10-24 22:08:44,870 - INFO - I Clicked on Profile
+2024-10-24 22:08:46,893 - INFO - count of rows:8
+2024-10-24 22:08:47,202 - INFO - {'Company:': 'SERVCRUST PVT LTD', 'Name:': 'Superadmin', 'Role:': 'Superadmin', 'Status:': 'Inactive', 'Email:': 'satyasai573@gmail.com', 'Mobile:': '6667778881', 'Notifications:': 'Disabled', 'Created on:': '30-06-2023'}
+2024-10-24 22:08:52,284 - INFO - I Clicked on the User Botton
+2024-10-24 22:08:57,403 - INFO - Signout from the user
+2024-10-24 22:09:07,609 - INFO - Close the browser
