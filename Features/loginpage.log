@@ -46,3 +46,36 @@
 2024-10-24 22:08:52,284 - INFO - I Clicked on the User Botton
 2024-10-24 22:08:57,403 - INFO - Signout from the user
 2024-10-24 22:09:07,609 - INFO - Close the browser
+2024-10-26 10:42:43,769 - INFO - DB Connected successfully
+2024-10-26 10:42:48,065 - INFO - I launch chrome browser
+2024-10-26 10:42:50,396 - INFO - Open https://staging.servcrust.com/
+2024-10-26 10:42:52,209 - INFO - Clicked on Login Button
+2024-10-26 10:42:52,257 - INFO - Welcome to Order Management System.
+2024-10-26 10:42:52,352 - INFO - I Entered the User Name: Hanuman
+2024-10-26 10:42:52,449 - INFO - I Entered the Password: Test@1234
+2024-10-26 10:42:52,809 - INFO - Clicked on the login button
+2024-10-26 10:42:55,252 - INFO - Login Successful with the PARTNER
+2024-10-26 10:43:05,331 - INFO - I Clicked on the user
+2024-10-26 10:43:07,486 - INFO - I Clicked on Profile
+2024-10-26 10:43:09,497 - INFO - count of rows:8
+2024-10-26 10:43:09,801 - INFO - {'Company:': 'HANUMAN STONE CRUSHER', 'Name:': 'Hanuman', 'Role:': 'Partner', 'Status:': 'Active', 'Email:': 'dihaj91874@wikfee.com', 'Mobile:': '9059659999', 'Notifications:': 'Disabled', 'Created on:': '27-12-2023'}
+2024-10-26 10:43:14,880 - INFO - I Clicked on the User Botton
+2024-10-26 10:43:19,953 - INFO - Signout from the user
+2024-10-26 10:43:30,070 - INFO - Close the browser
+2024-11-01 09:03:36,333 - INFO - DB Connected successfully
+2024-11-01 09:12:28,798 - INFO - DB Connected successfully
+2024-11-01 09:12:31,286 - INFO - I launch chrome browser
+2024-11-01 09:12:34,169 - INFO - Open https://staging.servcrust.com/
+2024-11-01 09:12:37,068 - INFO - Clicked on Login Button
+2024-11-01 09:12:37,116 - INFO - Welcome to Order Management System.
+2024-11-01 09:12:37,198 - INFO - I Entered the User Name: Hanuman
+2024-11-01 09:12:37,272 - INFO - I Entered the Password: Test@1234
+2024-11-01 09:12:37,534 - INFO - Clicked on the login button
+2024-11-01 09:12:41,965 - INFO - Login Successful with the PARTNER
+2024-11-01 09:12:52,046 - INFO - I Clicked on the user
+2024-11-01 09:12:54,195 - INFO - I Clicked on Profile
+2024-11-01 09:12:56,207 - INFO - count of rows:8
+2024-11-01 09:12:56,570 - INFO - {'Company:': 'HANUMAN STONE CRUSHER', 'Name:': 'Hanuman', 'Role:': 'Partner', 'Status:': 'Active', 'Email:': 'dihaj91874@wikfee.com', 'Mobile:': '9059659999', 'Notifications:': 'Disabled', 'Created on:': '27-12-2023'}
+2024-11-01 09:13:01,624 - INFO - I Clicked on the User Botton
+2024-11-01 09:13:06,676 - INFO - Signout from the user
+2024-11-01 09:13:16,877 - INFO - Close the browser
