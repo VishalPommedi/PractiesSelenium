@@ -3,6 +3,9 @@ I am going to upload my selenium practies code in this repository.
 
 Author - Vishal Pommedi
 
+To Run this project in your local system, please install required dependenties with "pip install -r requirements.txt" command in your system
+
+
 Git commands
 
 1. Initialize and Configure Git:
