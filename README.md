@@ -5,6 +5,9 @@ Author - Vishal Pommedi
 
 To Run this project in your local system, please install required dependenties with "pip install -r requirements.txt" command in your system
 
+To store all dependenties on requiremets.txt file we need to use "pip freeze > requirements.txt" command in our system.
+
+
 
 Git commands
 

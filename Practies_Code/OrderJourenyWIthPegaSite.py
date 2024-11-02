@@ -23,6 +23,11 @@ class VerifyButtonClickable:
     Quantity_xpath = "//select[@name='product_quantity']"
     QuantityList_xpath = "//select[@name='product_quantity']//option"
 
+    # Cart Xpath's
+    CountOfOrders_xpath = "//div//ul//div[@id='number_orders']"
+    CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
+    
+
     def checkthebutton(self):
 
         try:
