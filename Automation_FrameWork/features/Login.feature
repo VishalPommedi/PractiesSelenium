@@ -1,10 +1,13 @@
-Feature: Register a user in demo webshop
+Feature: login to Pega website with a valid user
+  Scenario Outline: Login with given credentials
+    Given I launch the Chrome Browser
+    When I Navigated to the Pega Login page
+    Then I Entered "<UserName>" and "<Password>"
+    When User Login Successfully verify the user Name
+    Then Logout
+    And Close the Browser
 
-  Scenario: Register a user in demo webshop
-    Given I launch chrome broser
-    When Navigate to the "<website>"
-    Then I close the browser
+  Examples:
+    | UserName | Password |
+    | Testing  | Testing  |
 
-    Example:
-    |website|
-    |https://staging.servcrust.com/"

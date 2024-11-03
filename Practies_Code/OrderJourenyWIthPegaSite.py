@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import StaleElementReferenceException
 
-class VerifyButtonClickable:
+class EndtoEndOrder:
 
     user_name_xpath = "//input[@name='user_name']"
     password_xpath = "//input[@id='user_pass']"
@@ -28,7 +28,7 @@ class VerifyButtonClickable:
     CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
     
 
-    def checkthebutton(self):
+    def OrderJourney(self):
 
         try:
              driver = webdriver.Chrome()
@@ -170,5 +170,5 @@ class VerifyButtonClickable:
 
        
 
-obj = VerifyButtonClickable()
-obj.checkthebutton()        
+obj = EndtoEndOrder()
+obj.OrderJourney()        
