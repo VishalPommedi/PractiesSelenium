@@ -9,5 +9,5 @@ Feature: login to Pega website with a valid user
 
   Examples:
     | UserName | Password |
-    | Testing  | Testing  |
+    | Vishal  | Testing  |
 
