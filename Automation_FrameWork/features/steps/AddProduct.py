@@ -7,9 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-
-
 @then(u'Select a product type from the list')
 def Select_A_ProductType(context):
     try:
@@ -43,33 +40,67 @@ def SelectAProduct(context):
 
         SelectAProduct = random.choice(NamesOfTheProduct)
         SelectAProduct.click()
-        print(f'The selected product is: "{SelectAProduct.text}"')
-
-        time.sleep(4)
-
-        # Verify the button is eneble before going to click on "View Details"
-        View_Details_Button = context.driver.find_elemet(By.XPATH, Locators.ViewDetailsButton_xpath)
-
-        View_Details_Button.click()    
-
-        time.sleep(15)    
+        context.selectedproduct_name = SelectAProduct.text
+        print(f'The selected product is: "{context.selectedproduct_name}"')
+        
+        time.sleep(2)
 
     except Exception as e:
-        print(f'The error occured to select a product and click on the view details button')
+        print(f'The error occured to select a product and click on the view details button/n The error: {e}')
+        raise e
 
+    
+    try:
+         # Verify the button is eneble before going to click on "View Details"
+         ViewDetails_Button = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, Locators.ViewDetailsButton_xpath)))
+         print("The status of button", ViewDetails_Button.is_enabled())
+         ViewDetails_Button.click()  
+         time.sleep(2)  
 
-        
+    except Exception as e:
+        print(f'The error occured to click on view details button')
 
 @when(u'I navigate to Details page')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I navigate to Details page')
+def OrderTheProduct(context):
+    
+    Aggregate_name = WebDriverWait(context.driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, Locators.AggregateName_xpath))
+    )
+    print('Expected name', context.selectedproduct_name)
+    print('Output name ', Aggregate_name.text)
+
+    if Aggregate_name.text == context.selectedproduct_name:
+        print('The same name shown on view details page')
+    else:
+        print('the same name not shown on the view details page')
+
+    time.sleep(2)    
 
 
 @then(u'Store the product price and click on order Button')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then Store the product price and click on order Button')
+def Click_On_OrderButton(context):
+    # Store the bill amount
+    try:
+        ProductPrice = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, Locators.ProductPrice_xpath))
+        )
+
+        print(ProductPrice.text)
+        time.sleep(3)
+    except Exception as e:
+        print('Error occured to save the product price')
+        print('The error:', e)
+
+    # Click on the order button
+    try:
+        Order_Button = context.driver.find_element(By.XPATH, Locators.OrderButton_xpath)
+        Order_Button.click()
+        time.sleep(15)
+    except Exception as e:
+        print('The erro occured to click on the "order button"')
+        print('The error ', e)
 
 
-@then(u'verify order product page')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then verify order product page')
+# @then(u'verify order product page')
+# def step_impl(context):
+#     raise NotImplementedError(u'STEP: Then verify order product page')

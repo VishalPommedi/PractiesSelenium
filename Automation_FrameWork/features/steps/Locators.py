@@ -25,6 +25,8 @@ OrderButton_xpath = "//input[@name='Order']"
 Quantity_xpath = "//select[@name='product_quantity']"
 QuantityList_xpath = "//select[@name='product_quantity']//option"
 
+ProductPrice_xpath = '//table[@id="home_product_detail"]//tbody//tr//td[2]//p[3]//b'
+
 # Cart Xpath's
 CountOfOrders_xpath = "//div//ul//div[@id='number_orders']"
 CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
