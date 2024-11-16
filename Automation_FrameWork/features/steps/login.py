@@ -46,7 +46,7 @@ def step_impl(context):
         print('Login Failure!')
 
 @then(u'Logout')
-def step_impl(context):
+def Logout(context):
     try:
         # initializing the ActionChains with driver
         action = ActionChains(context.driver)
@@ -54,24 +54,47 @@ def step_impl(context):
         Gear_Icon = WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators.GearIcon_xpath)))
 
         action.move_to_element(Gear_Icon).perform()
-        time.sleep(5)
-        Profile_Options = context.driver.find_elements(By.XPATH, Locators.Profile_Details_xpath)
-
-        All_Options = [i for i in Profile_Options]
-        OPtion_Names = [i.text for i in Profile_Options]
-        print(f'Profile Options: {OPtion_Names}')
-
-        for option in All_Options:
-            if option.text == "Sign Out":
-                option.click()
-                print(f'clicked on the {option.text}')
-                break
+        # time.sleep()
+        # Profile_Options = context.driver.find_elements(By.XPATH, Locators.Profile_Details_xpath)
         time.sleep(10)    
     except Exception as e:
-        print(f'error: {e}. The error occured while performing the Signout operation')
+        print(f'The error occured to hover over on the profile error: {e}.')
 
+    try:
+        # Click on the "Sign Out" button
 
+        # Profile_OPtions = WebDriverWait(context.driver, 10).until(
+        #     EC.visibility_of_all_elements_located((By.XPATH, Locators.Profile_Details_xpath))
+        # )
+        # time.sleep(1)
+        # All_Options = [i for i in Profile_OPtions]
+        # OPtion_Names = [i.text for i in Profile_OPtions]
+        # print(f'Profile Options: {OPtion_Names}')
 
+        # for option in All_Options:
+        #     if option.text == "Sign Out":
+        #         option.click()
+        #         print(f'clicked on the {option.text}')
+        #         break
+        SignOut_Button = WebDriverWait(context.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[normalize-space()='Sign Out']"))
+        )
+        SignOut_Button.click()
+        print('clciked on the "SIgn Out" Button')
+    except Exception as e:
+        print('The error occured to Click on "Sign Out" Button')
+        print('Error ', e)
+
+    time.sleep(2)
+
+    try:
+        LoginPage_Message = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, Locators.LoginPage_Message_xpath))
+        )    
+        print(LoginPage_Message.text)
+    except Exception as e:
+        print('Error occured to navigate login page, the error: ', e)
+ 
 @then(u'Close the Browser')
 def step_impl(context):
    pass
