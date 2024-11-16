@@ -1,0 +1,36 @@
+<testsuite name="AddProductToCart.Add a Random product to cart" tests="1" errors="0" failures="0" skipped="0" time="55.624381" timestamp="2024-11-16T12:10:33.555234" hostname="VishalPommedi"><testcase classname="AddProductToCart.Add a Random product to cart" name="Login with a user and add a random product to cart -- @1.1 " status="passed" time="55.624381"><system-out>
+<![CDATA[
+@scenario.begin
+  Scenario Outline: Login with a user and add a random product to cart -- @1.1 
+    Given I launch the Chrome Browser ... passed in 0.000s
+    When I Navigated to the Pega Login page ... passed in 3.264s
+    Then I Entered "Vishal" and "Test" ... passed in 2.383s
+    When User Login Successfully verify the user Name ... passed in 3.923s
+    Then Select a product type from the list ... passed in 3.209s
+    And Selet a product and click on "View Details Button" ... passed in 7.020s
+    When I navigate to Details page ... passed in 2.060s
+    Then Store the product price and click on order Button ... passed in 19.909s
+    And verify order product page ... passed in 0.057s
+    Then Logout ... passed in 13.800s
+    And Close the Browser ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+
+Captured stdout:
+Navigated to the website: https://training.openspan.com/login
+Login Successful
+Seleted Product type is "Beverages"
+clicked on the "Select product button
+The selected product is: "Sasquatch Ale"
+The status of button True
+Expected name Sasquatch Ale
+Output name  Sasquatch Ale
+The same name shown on view details page
+Price: $ 14.00
+The "Order Page" Visible
+clciked on the "SIgn Out" Button
+Sign in to Pega Robotic Automation Training
+
+]]>
+</system-out></testcase></testsuite>
