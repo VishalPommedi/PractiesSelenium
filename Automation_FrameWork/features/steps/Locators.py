@@ -6,6 +6,7 @@ WebSite_URL = "https://training.openspan.com/login"
 user_name_xpath = "//input[@name='user_name']"
 password_xpath = "//input[@id='user_pass']"
 SignInButton_xpath = "//input[@id='login_button']"
+LoginPage_Message_xpath = "//h1[normalize-space()='Sign in to Pega Robotic Automation Training']"
 
 # Home Screen
 
@@ -31,5 +32,8 @@ ProductPrice_xpath = '//table[@id="home_product_detail"]//tbody//tr//td[2]//p[3]
 CountOfOrders_xpath = "//div//ul//div[@id='number_orders']"
 CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
 
+# Order Page
+ContinueShopping_button_xpath = '//input[@name="continue_shopping"]'
+EditYourCart_xpath = "//input[@name='edit_your_cart']"
 
 

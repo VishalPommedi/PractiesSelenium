@@ -101,6 +101,17 @@ def Click_On_OrderButton(context):
         print('The error ', e)
 
 
-# @then(u'verify order product page')
-# def step_impl(context):
-#     raise NotImplementedError(u'STEP: Then verify order product page')
+@then(u'verify order product page')
+def VerifyOrders_page(context):
+    try:
+        ContinueShopping_Button = WebDriverWait(context.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, Locators.ContinueShopping_button_xpath))
+        )
+
+        if ContinueShopping_Button.is_displayed():
+            print('The "Order Page" Visible')
+        else:
+            print('The "Order Page" is not Visible')
+
+    except Exception as e:
+        print('Error occured at navigate to Orders page')
