@@ -35,5 +35,33 @@ CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
 # Order Page
 ContinueShopping_button_xpath = '//input[@name="continue_shopping"]'
 EditYourCart_xpath = "//input[@name='edit_your_cart']"
+ViewButton_xpath = "//a[contains(text(),'View')]"
+RemoveButton_xpath = "//a[contains(text(),'Remove')]"
+NextButton_xpath = '//input[@id="next1_button"]' # for all pages
+GrandTotalValue_xpath = "//p[@id='your_total']//span"
+
+# Step 2 Tell Us Who You Are
+FirstName_xpath = "//input[@id='bfirst_name']"
+LastName_xapth = "//input[@id='blast_name']"
+CompanyName_xapth = "//input[@id='bcompany_name']"
+StreetAddress_xpath = "//p//input[@name='bstreet_address']"
+ZipCode_xapth = "//p//input[@name='bzip_code']"
+AreaCode_xapth = "//p//input[@id='barea_code']"
+PrimaryPhoneNumber_xapth = "//p//input[@name='bprimary_phone']"
+ShipToBillingAddress_xpath = "//a[normalize-space()='Ship to Billing Address']"
+
+# Step 3 Tell Us How You Will Pay
+CreditCard_RadioButton_path = "//input[@id='credit_card']"
+BillMe_xapth = "//input[@id='bill_me']"
+CardType_xpath = "//select[@id='card_type']"
+CardTypeDropdown_xpath = '//select[@name="card_type"]//option'
+SecurityCode_xapth = "//input[@id='security_code']"
+CardNumber_xpath = "//input[@id='card_number']"
+ExpirationMonth_xpath = "//select[@id='expiry_month']"
+ExpirationMonthDropdown_xpath = "//select[@id='expiry_month']//option"
+ExpirationsYear_xpath = "//select[@id='expiry_year']"
+ExpirationYearDropdown_xpath = "//select[@id='expiry_year']//option"
+SubmitButton_xpath = "//input[@id='submit_button']"
+
 
 
