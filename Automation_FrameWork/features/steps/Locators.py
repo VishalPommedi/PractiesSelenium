@@ -30,7 +30,7 @@ ProductPrice_xpath = '//table[@id="home_product_detail"]//tbody//tr//td[2]//p[3]
 
 # Cart Xpath's
 CountOfOrders_xpath = "//div//ul//div[@id='number_orders']"
-CartImage_xpath = "//div//ul/li//a//img[@alt='Cart']"
+CartImage_xpath = "//li[@id='cart_menu']//a[@class='menu_option']"
 
 # Order Page
 ContinueShopping_button_xpath = '//input[@name="continue_shopping"]'
