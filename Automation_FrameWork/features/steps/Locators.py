@@ -63,5 +63,7 @@ ExpirationsYear_xpath = "//select[@id='expiry_year']"
 ExpirationYearDropdown_xpath = "//select[@id='expiry_year']//option"
 SubmitButton_xpath = "//input[@id='submit_button']"
 
+NextButton_BillingPage_xpath = "//input[@value='Next' and @id='next2_button']"
+
 
 

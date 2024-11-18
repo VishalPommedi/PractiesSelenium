@@ -1,5 +1,6 @@
 import time
 import Locators
+import random
 from RandomDetails import Random_names
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -93,13 +94,149 @@ def AddTheBilling_Address(context):
         ShippingToBillingAddress = context.driver.find_element(By.XPATH, Locators.ShipToBillingAddress_xpath)
         ShippingToBillingAddress.click()
 
-        #Click on the Next Button
-        NextButton = context.driver.find_element(By.XPATH, Locators.NextButton_xpath)
-        NextButton.click()
+        time.sleep(2)
 
 
 
     except Exception as e:
         print('The error occured at to enter billing details')
         print(e)
-    time.sleep(15)
+
+    try:
+        #Click on the Next Button
+        NextButton = context.driver.find_element(By.XPATH, Locators.NextButton_BillingPage_xpath)
+        print('The next buttton is: ', NextButton.is_enabled())
+        NextButton.click()
+        print('cliked on the "Next Button"')
+
+    except Exception as e:
+        print('The error uccred at clik on the "Next" Button on Billing Screen\n error: ', e)
+
+    time.sleep(2)
+
+@when(u'Credit Card is selected on the "ell Us How You Will Pay" page')
+def Creck_CreditCard_Selected(context):
+
+    try:    
+        CreditCard = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, Locators.CreditCard_RadioButton_path))
+        )
+
+        if CreditCard.is_selected():
+            print('The "Credit Card Selected By Default"')
+        else:
+            print('The Card is not selected')
+
+    except Exception as e:
+        print('The error occured at verify the "Credit Card" Radio button is selected by default')
+        print('error: ', e)
+    time.sleep(1)    
+
+@then(u'Enter the card details')
+def Enter_Card_Details(context):
+    # Select the Card type
+    try:
+        CardType_Button = context.driver.find_element(By.XPATH, Locators.CardType_xpath)
+        CardType_Button.click()
+        time.sleep(1)
+
+        AllCard_Types = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_all_elements_located((By.XPATH, Locators.CardTypeDropdown_xpath))
+        )
+        AllCards_Names = [i.text for i in AllCard_Types]
+        FilterCards = [card_type for card_type in AllCard_Types if card_type.text != "Card Type"]
+        print('Card Types: ', AllCards_Names)
+
+        if FilterCards:
+            card = random.choice(FilterCards)
+            print(f'Selected Card: {card.text}')
+            card.click()
+    except Exception as e:
+        print('the error occured at select the card type from the drop down')
+        print(e)        
+    time.sleep(1)
+    # Enter Security code and Card Number
+    try:
+        SecurityCode = context.driver.find_element(By.XPATH, Locators.SecurityCode_xapth)
+        SecurityCode.send_keys(Area_code)
+        print("Entered the Security code: ",Area_code)
+        time.sleep(1)
+
+        CreditCard_Number = context.driver.find_element(By.XPATH, Locators.CardNumber_xpath)
+        CreditCard_Number.send_keys(CC_Num)
+        print(f'Credit card number: {CC_Num}')
+        time.sleep(1)
+
+    except Exception as e:
+        print('the error occured at enter security code and credit card number\n', e)
+
+    # Select the expiration month and year
+    try:    
+        ExpirationMonth_Button = context.driver.find_element(By.XPATH, Locators.ExpirationMonth_xpath)  
+        ExpirationMonth_Button.click()
+        print('Clicked on the Expiration month button')
+        time.sleep(1)
+        AllMonths = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_all_elements_located((By.XPATH, Locators.ExpirationMonthDropdown_xpath))
+        )
+        FilterMonths = [i for i in AllMonths if i.text != "Expiration Month"]
+        AllMonths_Names = [i.text for i in AllMonths]
+        print(f'All Months: {AllMonths_Names}')
+
+        if FilterMonths:
+            Month = random.choice(FilterMonths)
+            Month.click()
+            print(f'selected month: {Month.text}')
+    except Exception as e:
+        print('The error occured at click on the Expiration month\nerror: ',e)
+    time.sleep(1)
+    # Select Expiration Year
+    try:
+        ExpriationYear_Button = context.driver.find_element(By.XPATH, Locators.ExpirationsYear_xpath)
+        ExpriationYear_Button.click()
+        print('clicked on the Expiration year button')
+        time.sleep(1)
+        AllYears = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_all_elements_located((By.XPATH, Locators.ExpirationYearDropdown_xpath))
+        )    
+
+        year_text = [i.text for i in AllYears]
+        print(year_text)
+        FilterYears = [i for i in AllYears if i.text != "Expiration Year"]   
+
+        if FilterYears:
+            Year = random.choice(FilterYears)   
+            Year.click()
+            print('Selected year: ',Year.text)       
+
+    except Exception as e:
+        print('The error occured at select the expiration month and date\nerror:', e)  
+
+    time.sleep(2)
+
+@then(u'Click on the Submit Button')
+def ClickOn_Submit_Button(context):
+    try:
+        Submit_Button = context.driver.find_element(By.XPATH, Locators.SubmitButton_xpath)
+        Submit_Button.click()
+        time.sleep(2)
+    except Exception as e:
+        print('The error occured at click on the Submit Button, error: ', e)
+        print('The Button : ',Submit_Button.is_enabled())
+
+@then(u'verify the Success message')
+def Verify_SucessMessage(context):
+    try:
+        Order_Id = WebDriverWait(context.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, "//div//p//b"))
+        )
+
+        print('The Order Id: ', Order_Id.text)
+        time.sleep(1)
+
+        Success_message = context.driver.find_element(By.XPATH, "//div//p[2]")
+        print('the success message: ', Success_message.text)
+
+    except Exception as e:
+        print('The error occured at read the success message/n error: ',e)    
+    time.sleep(2)
