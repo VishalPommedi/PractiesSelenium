@@ -32,6 +32,14 @@ keboard.type(imagePath)
 keboard.press(Key.enter)
 keboard.release(Key.enter)
 
-time.sleep(5)
+time.sleep(2)
+
+driver.execute_script("window.scrollTo(0, 0)")
+
+time.sleep(2)
+
+for i in range(5):
+    driver.execute_script("window.scrollBy(0, 100)")
+    time.sleep(1)
 
 driver.close()
