@@ -2,6 +2,16 @@
 
 WebSite_URL = "https://training.openspan.com/login"
 
+# Web page Menu
+
+Menu_Options_xpath = "//div[@id='menu']//li/a"
+
+# Stores
+Stores_StoreListing_xpath = "//a[normalize-space()='Store Listing']"
+StoerListing_Text_xpath = "//h1[normalize-space()='Store Listing']"
+StoreListening_TableRows_xpath = "//table[@id='search_store_list']//tbody//tr"
+StoreListening_TableCelss_xpath = "//table[@id='search_store_list']//tbody//tr//td"
+
 # login page
 user_name_xpath = "//input[@name='user_name']"
 password_xpath = "//input[@id='user_pass']"

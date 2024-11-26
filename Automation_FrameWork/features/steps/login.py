@@ -1,5 +1,7 @@
 import time
 import Locators
+import logging
+from log import LogConfigurator
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from behave import given, when, then
@@ -7,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+Configurator = LogConfigurator()
 
 @given(u'I launch the Chrome Browser')
 def OPen_Browser(context):
@@ -15,15 +18,21 @@ def OPen_Browser(context):
 
 @when(u'I Navigated to the Pega Login page')
 def OpenUrl(context):
+
+    Configurator.beforeall(context)
+
     try:
         context.driver.get(Locators.WebSite_URL)
-        print(f'Navigated to the website: {Locators.WebSite_URL}')
+        # print(f'Navigated to the website: {Locators.WebSite_URL}')
+        logging.info(f'navigated to the website: {Locators.WebSite_URL}')
 
     except Exception as e:
-        print(f'Erorr occureted at navigete to the url. Error: {e}')
+        # print(f'Erorr occureted at navigete to the url. Error: {e}')
+        logging.error(f'Erorr occureted at navigete to the url. Error: {e}')
 
 @then(u'I Entered "{UserName}" and "{Password}"')
 def step_impl(context, UserName, Password):
+    Configurator.beforeall(context)
     User_Name = WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators.user_name_xpath)))
     PassWord = context.driver.find_element(By.XPATH, Locators.password_xpath)
 
@@ -32,21 +41,31 @@ def step_impl(context, UserName, Password):
     PassWord.send_keys(Password)
     time.sleep(1)
 
+    logging.info(f'The user name and password is: {UserName}, {Password} ')
+
 
 @when(u'User Login Successfully verify the user Name')
 def step_impl(context):
+
+    Configurator.beforeall(context)
+
     SignIn_Button = WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.XPATH, Locators.SignInButton_xpath)))
     SignIn_Button.click()
+
+    logging.info('Clicked on the Signin Button')
 
     # Verify the Home Screen
     HomeScreen_Message = context.driver.find_element(By.XPATH, Locators.HomeScreen_Text_xpath)
     if Locators.ExpectedHomeScreen_text == HomeScreen_Message.text:
-        print('Login Successful')
+        # print('Login Successful')
+        logging.info('Login Success')
     else:
-        print('Login Failure!')
+        # print('Login Failure!')
+        logging.warning('Login Failure')
 
 @then(u'Logout')
 def Logout(context):
+    Configurator.beforeall(context)
     try:
         # initializing the ActionChains with driver
         action = ActionChains(context.driver)
@@ -58,7 +77,8 @@ def Logout(context):
         # Profile_Options = context.driver.find_elements(By.XPATH, Locators.Profile_Details_xpath)
         time.sleep(10)    
     except Exception as e:
-        print(f'The error occured to hover over on the profile error: {e}.')
+        # print(f'The error occured to hover over on the profile error: {e}.')
+        logging.error(f'The error occured to hover over on the profile error: {e}.')
 
     try:
         # Click on the "Sign Out" button
@@ -80,10 +100,12 @@ def Logout(context):
             EC.element_to_be_clickable((By.XPATH, "//a[normalize-space()='Sign Out']"))
         )
         SignOut_Button.click()
-        print('clciked on the "SIgn Out" Button')
+        # print('clciked on the "SIgn Out" Button')
+        logging.info('clciked on the "SIgn Out" Button')
     except Exception as e:
-        print('The error occured to Click on "Sign Out" Button')
-        print('Error ', e)
+        # print('The error occured to Click on "Sign Out" Button')
+        # print('Error ', e)
+        logging.error(f'The error occured to Click on "Sign Out" Button, error: {e}')
 
     time.sleep(2)
 
@@ -93,7 +115,8 @@ def Logout(context):
         )    
         print(LoginPage_Message.text)
     except Exception as e:
-        print('Error occured to navigate login page, the error: ', e)
+        # print('Error occured to navigate login page, the error: ', e)
+        logging.error('Error occured to navigate login page, the error: ', e)
  
 @then(u'Close the Browser')
 def step_impl(context):
