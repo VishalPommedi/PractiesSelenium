@@ -80,3 +80,4 @@ def Read_Data(context):
         data.append(sub_data)
 
     logging.info(data)    
+    Configurator.after(context)
