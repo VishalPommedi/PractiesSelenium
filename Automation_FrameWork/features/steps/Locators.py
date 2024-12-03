@@ -75,5 +75,40 @@ SubmitButton_xpath = "//input[@id='submit_button']"
 
 NextButton_BillingPage_xpath = "//input[@value='Next' and @id='next2_button']"
 
+# Gear Icon | Customers
+Newcustomer_tabledata_xpath = "//table[@id='manage_user_inputs']//tbody//tr[2]//td"
+Accountnumber_input_xpath = "//input[@id='account_number']"
+Customername_input_xpath = "//input[@id='customer_name']"
+Companyname_input_xpath = "//input[@id='company_name']"
+Addcustomer_Button_xpath = "//input[@id='login_button']"
+
+# Gear Icon | Customers | New Customer information
+Customeremail_input_xpath = "//input[@id='account_email']"
+Customerphone_input_xpath = "//input[@id='account_phone']"
+Selectlevel_dropdown_xpath = "//select[@id='account_level']"
+All_levels_xpath = "//select[@id='account_level']//option"
+Accountopened_datepicker_xpath = "//input[@id='datepicker']"
+
+
+# Calendar
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+allActiveDates = "//div[@id='ui-datepicker-div']//tbody/tr/td[@class!=' ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled']//a"
+Cal_Month_Text_xpath = "//span[@class='ui-datepicker-month']"
+Cal_Year_Text_xpath = "//span[@class='ui-datepicker-year']"
+Cal_Next_Button_xpath = "//span[@class='ui-icon ui-icon-circle-triangle-e']"
+Cal_Previous_Button_xpath = "//span[@class='ui-icon ui-icon-circle-triangle-w']"
+
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Personalid_input_xpath = "//input[@id='account_ssn_code']"
+StreetAddress_input_xpath = "//input[@id='account_street_address']"
+City_input_xpath = "//input[@name='city']"
+State_input_xpath = "//input[@id='account_state']"
+zipcode_xpath = "//input[@id='account_zip_code']"
+Save_Button_xpath = "//input[@name='Save']"
+Cancel_Button_xpath = "//input[@name='Cancel']"
+
+
+
 
 
