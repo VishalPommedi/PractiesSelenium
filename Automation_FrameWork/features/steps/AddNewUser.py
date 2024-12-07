@@ -1,7 +1,10 @@
 import time
 import random
 import Locators
+import logging
+from commonsteps import RepeatSteps
 from behave import *
+from log import LogConfigurator
 from RandomDetails import Random_names
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
@@ -10,31 +13,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 FirstName, LastName, Email, CC_Num, Zip_code, Mobile_no, Area_code, company_name = Random_names()
-
+Configurator = LogConfigurator()
 
 @then(u'Navigate to customer page')
 def Navigate_to_Customer_Page(context):
-    wait = WebDriverWait(context.driver, 10)
-    Action = ActionChains(context.driver)
 
     try:
-        # Hover over on the gear icon
-        Gear_Icon = wait.until(EC.visibility_of_element_located((By.XPATH, Locators.GearIcon_xpath)))
-        Action.move_to_element(Gear_Icon).perform()
-
-        Icons_Under_Gear = wait.until(EC.presence_of_all_elements_located((By.XPATH, Locators.Profile_Details_xpath)))
-        
-        Customers_Button = next((i for i in Icons_Under_Gear if i.text == "Customers"), None)
-        
-
-        if Customers_Button is None:
-            raise Exception('The customer button is not found under the Gear Icon')
-                    
-        Customers_Button.click()
+        Configurator.beforeall(context)
+        SelectOption = RepeatSteps()
+        Option = "Customers"
+        SelectOption.SelectOption_from_GearIcon(context, Option)
+        logging.info('Clicked on the "Customers" Button')
+        time.sleep(5)
     except Exception as e:
-        print('the error occured at navigate to the customer page')
-        raise        
-    time.sleep(2)
+        logging.error(f'The error occured at Navigate t the Customers page. The error: {e}')
 
 @then(u'Add Customer details "Account Number", "Customer Name", "Company Name", and click on "Add Customer button"')
 def addCustomer_details(context):
@@ -180,5 +172,5 @@ def Enter_All_Details(context):
 
     time.sleep(15)
 @then(u'Verify user in the all users list')
-def VerifyUserData(context):
+def VerifyUserData_fromlist(context):
     pass
