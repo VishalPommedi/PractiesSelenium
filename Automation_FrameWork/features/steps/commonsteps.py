@@ -1,11 +1,12 @@
+import time
 import Locators
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+
 class RepeatSteps:
     
-
     def SelectOption_from_GearIcon(self, context, option):
         try:
             wait = WebDriverWait(context.driver, 10)
@@ -26,3 +27,11 @@ class RepeatSteps:
         except Exception as e:
             print(f'The error is occurred  at selecting the {option}. The error: {e}')
 
+    def Switch_Window(self, context):
+        Current_Window = context.driver.current_window_handle
+        WebDriverWait(context.driver, 10).until(lambda d: len(context.driver.window_handles)>1)
+
+        new_window = [window for window in context.driver.window_handles if window != Current_Window][0]
+
+        context.driver.switch_to.window(new_window)
+        time.sleep(3)

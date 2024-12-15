@@ -108,6 +108,15 @@ zipcode_xpath = "//input[@id='account_zip_code']"
 Save_Button_xpath = "//input[@name='Save']"
 Cancel_Button_xpath = "//input[@name='Cancel']"
 
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$-Finance page locators-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+F_HomePage_xpath = "//b[normalize-space()='ACME Finance']"
+F_GearIcon_xpath = "//div//ul//li//a[@class='menu_option']"
+F_GearOptions_xpath = "//div[@class='submenu_option']//a"
+
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$-Menu List locators-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+allMenuOPtions_xpath = '//div[@id="menu"]//ul//li//a[@class="menu_option"]'
+shppingSubMenu_xpath = "//div[@id='shipping_menu']//div//a"
+
 
 
 
