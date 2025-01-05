@@ -35,3 +35,5 @@ class RepeatSteps:
 
         context.driver.switch_to.window(new_window)
         time.sleep(3)
+
+        return new_window
