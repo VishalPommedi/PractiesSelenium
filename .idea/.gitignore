@@ -3,3 +3,5 @@
 /workspace.xml
 api_testing_with_jira/.env
 *.log
+*.pyc
+*.log
