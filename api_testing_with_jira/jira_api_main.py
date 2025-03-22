@@ -64,15 +64,46 @@ class JiraAPITesting:
             print('error!', response.status_code)
             print(response.json())
 
+    def getIssueswithProjectId(self, endPoint, projectId):
+        issues_list = {}
+        query = {
+            'projectId': projectId
+            }
+
+        response = requests.get(f'{self.baseUrl}{endPoint}', auth=HTTPBasicAuth(self.emailId, self.apiKey), headers={"Accept": "application/json" }, params=query) 
+        payload = response.json()
+        if response.status_code == 200:
+            
+            issues_list = {issue.get('name') : issue.get('id') for issue in payload}
+            print(issues_list)    
+        elif response.status_code == 404:
+            print(f'status code: {response.status_code}')
+            print(payload["errorMessages"])
+
+        elif response.status_code == 400:
+            print(f'status code: {response.status_code}')
+            print(response.json()['errorMessages'])
+            
+                
+        else:
+            print('Get Issue type based  the project function got failed!')
+            print(response.status_code, response.json())           
+
+
+
 # emailId = "pommedichintu15980@gmail.com"
 # baseUrl = "https://pommedi.atlassian.net"
 getRecentProjects_endpoint = "/rest/api/3/project/recent"
 getIssuesTypes_endpoint = "/rest/api/3/issuetype"
+getIssueTypewithprojectId = "/rest/api/3/issuetype/project"
+
+
 
 obj = JiraAPITesting()
-projectName = "Learning Testing"
+projectName = "Learning Postman"
 ProjectID = obj.getParticularProjectId(getRecentProjects_endpoint, projectName)
 print(ProjectID)
 
 obj.get_all_issues(getIssuesTypes_endpoint)
+obj.getIssueswithProjectId(getIssueTypewithprojectId, ProjectID)
 
