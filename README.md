@@ -1,162 +1,96 @@
-# PractiesSelenium
-I am going to upload my selenium practies code in this repository.
+# 🧪 BDD Automation Framework - Python + Selenium + Behave
 
-Author - Vishal Pommedi
+This project is a Behavior-Driven Development (BDD) automation testing framework built using **Python**, **Selenium WebDriver**, and **Behave** (Cucumber for Python). It is designed for functional UI test automation and follows best practices in test structure and maintainability.
 
-To Run this project in your local system, please install required dependenties with "pip install -r requirements.txt" command in your system
+---
 
-To store all dependencies on requiremets.txt file we need to use "pip freeze > requirements.txt" command in our system.
+## 📁 Project Structure
 
+```
+project-root/
+│
+├── features/
+│   ├── steps/                  # Step Definitions
+│   ├── environment.py          # Hooks (setup & teardown)
+│   ├── *.feature               # Gherkin feature files
+│
+├── logs/                       # Log files
+├── reports/                    # Test reports (Allure/HTML)
+├── requirements.txt            # Python dependencies
+├── README.md                   # Project documentation
+```
 
+---
 
-Git commands
+## ⚙️ Tools & Technologies
 
-1. Initialize and Configure Git:
+- **Language:** Python 3.11.5 
+- **Test Framework:** Behave (BDD)
+- **Automation:** Selenium WebDriver  
+- **Design Pattern:** Page Object Model (POM)  
+- **Reporting:** Allure
+- **Logging:** Python’s logging module  
+- **Others:** ConfigParser, time, os, etc.
 
-    git init
-        Initializes a new Git repository in the current directory.
-        Example: git init
-    git config
-        Configures Git settings like username and email.
-        Example:
-            Set username: git config --global user.name "Your Name"
-            Set email: git config --global user.email "you@example.com"
+---
 
-2. Cloning Repositories:
+## 🚀 How to Run Tests
 
-    git clone
-        Creates a copy of a remote repository.
-        Example:
-        git clone <repository-url>
-            git clone https://github.com/username/repo.git
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/VishalPommedi/PractiesSelenium.git
+   ```
 
-3. Check Repository Status:
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-    git status
-        Shows the status of the working directory and staged files.
-        Example: git status
+3. **Run tests:**
+   ```bash
+   behave
+   ```
 
-4. Adding Files to Staging:
+4. *(Optional)* **Generate Allure Report:**
+   ```bash
+   behave -f allure_behave.formatter:AllureFormatter -o reports/ features/
+   allure serve reports/
+   ```
 
-    git add
-        Stages changes (new, modified, or deleted files) to be committed.
-        Example:
-            Add a specific file: git add <filename>
-            Add all files: git add .
+---
 
-5. Committing Changes:
+## 🧪 Sample Feature File
 
-    git commit
-        Records the staged changes in the local repository.
-        Example:
-        git commit -m "Your commit message"
+```gherkin
+Feature: Login Functionality
 
-6. Branching and Merging:
+  Scenario: Valid login
+    Given the user is on the login page
+    When the user enters valid credentials
+    Then the user should be redirected to the dashboard
+```
 
-    git branch
-        Lists branches, creates new branches, or deletes branches.
-        Example:
-            List branches: git branch
-            Create a branch: git branch <branch-name>
+---
 
-    git checkout
-        Switches to a branch or commit.
-        Example:
-            Switch branch: git checkout <branch-name>
-            Create and switch to a new branch: git checkout -b <branch-name>
+## ✍️ Author
 
-    git merge
-        Merges changes from one branch into another.
-        Example:
-        git merge <branch>
+- **Name:** Vishal Pommedi  
+- **LinkedIn:** [[www.linkedin.com/in/vishal-pommedi](www.linkedin.com/in/vishal-pommedi)] 
+- **GitHub:** [[github.com/yourusername](https://github.com/VishalPommedi)]
 
-7. Pushing and Pulling from Remote:
+---
 
-    git push
-        Pushes local changes to the remote repository.
-        Example:
-        git push origin <branch-name>
+## 📌 Notes
 
-    git pull
-        Fetches and merges changes from the remote repository to your local branch.
-        Example:
-        git pull
+- You can customize `environment.py` to include setup/teardown hooks.
+- Add environment-specific config using `.ini` or `.env` files.
+- Extend this framework to integrate with CI tools like Jenkins or GitHub Actions.
 
-8. Viewing Commit History:
+---
 
-    git log
-        Shows commit history.
-        Example:
-            Full log: git log
-            Oneline log: git log --oneline
+## ✅ To Do (Optional)
 
-9. Working with Remote Repositories:
-
-    git remote
-        Manages the remote repository configurations.
-        Example:
-            Show remote URLs: git remote -v
-            Add a remote: git remote add origin <url>
-
-10. Handling Conflicts:
-
-    git mergetool
-        Launches an external merge tool to resolve conflicts.
-        Example: git mergetool
-
-11. Undoing Changes:
-
-    git reset
-        Resets the current HEAD to a specified state.
-        Example:
-            Soft reset (keep changes): git reset --soft <commit>
-            Hard reset (discard changes): git reset --hard <commit>
-
-    git revert
-        Creates a new commit that undoes changes from a previous commit.
-        Example: git revert <commit>
-
-12. Tagging:
-
-    git tag
-        Adds a lightweight or annotated tag to a commit.
-        Example:
-            Create a tag: git tag <tag-name>
-            Push a tag: git push origin <tag-name>
-
-13. Stashing:
-
-    git stash
-        Temporarily saves changes that are not ready to be committed.
-        Example:
-        git stash
-
-    git stash pop
-        Restores stashed changes.
-        Example:
-        git stash pop
-
-14. Deleting Branches:
-
-    git branch -d
-        Deletes a local branch.
-        Example:
-        git branch -d <branch-name>
-
-    git push origin --delete <branch>
-        Deletes a remote branch.
-        Example:
-        git push origin --delete <branch-name>
-
-Usage Breakdown:
-
-Each Git command typically follows this format:
-
-    git is the command-line interface.
-    <command> is the specific Git command (e.g., commit, add, status).
-    [options] are additional parameters you can add (e.g., -m for a commit message).
-    <arguments> are the specific files, branches, or URLs that you act upon.
-
-This structure helps you efficiently interact with Git for
-
-version control.
+- [ ] Add Docker support  
+- [ ] Integrate CI/CD pipeline  
+- [ ] Add parallel test execution  
+- [ ] Expand test coverage
