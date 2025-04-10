@@ -76,7 +76,7 @@ Feature: Login Functionality
 
 - **Name:** Vishal Pommedi  
 - **LinkedIn:** [[www.linkedin.com/in/vishal-pommedi](www.linkedin.com/in/vishal-pommedi)] 
-- **GitHub:** [[github.com/yourusername](https://github.com/VishalPommedi)]
+- **GitHub:** [[https://github.com/VishalPommedi](https://github.com/VishalPommedi)]
 
 ---
 
