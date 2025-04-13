@@ -1,4 +1,6 @@
 import time
+import random
+import string
 import Locators
 import logging
 from commonsteps import RepeatSteps
@@ -37,7 +39,9 @@ def step_impl(context, UserName, Password):
     User_Name = WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, Locators.user_name_xpath)))
     PassWord = context.driver.find_element(By.XPATH, Locators.password_xpath)
 
-    User_Name.send_keys(UserName)
+    random_userName = "".join(random.choices(string.ascii_lowercase, k=5))
+
+    User_Name.send_keys(random_userName)
     time.sleep(1)
     PassWord.send_keys(Password)
     time.sleep(1)
