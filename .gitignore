@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.env
+**/.env
+*.env
+*.log
+*.pyc
+*.log
+*.png
