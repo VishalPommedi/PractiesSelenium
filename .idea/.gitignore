@@ -1,7 +1,9 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-api_testing_with_jira/.env
+.env
+**/.env
+*.env
 *.log
 *.pyc
 *.log
