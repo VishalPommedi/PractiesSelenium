@@ -1,9 +1,14 @@
 import time
+import os
 import Locators
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+import logging
+from log import LogConfigurator
+
+Configurator = LogConfigurator()
 
 class RepeatSteps:
     
@@ -37,3 +42,24 @@ class RepeatSteps:
         time.sleep(3)
 
         return new_window
+
+import os
+
+def capture_screenshot(context):
+    Configurator.beforeall(context)
+    try:
+        # Get the full path to the current feature file
+        feature_path = context.feature.filename
+        
+        # Extract directory and feature name
+        feature_dir = os.path.dirname(feature_path)
+        feature_name = os.path.splitext(os.path.basename(feature_path))[0]
+
+        # Screenshot name (overwrite each time)
+        screenshot_path = os.path.join(feature_dir, f"{feature_name}.png")
+
+        # Take screenshot
+        context.driver.save_screenshot(screenshot_path)
+        logging.info(f"Screenshot saved: {screenshot_path}")
+    except Exception as e:
+        logging.error(f"Failed to capture screenshot: {e}")
