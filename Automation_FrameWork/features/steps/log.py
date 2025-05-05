@@ -23,7 +23,7 @@ class LogConfigurator:
         root_logger = logging.getLogger()
         root_logger.addHandler(file_handler)
 
-    def after(self):
+    def after(self, context):
         # root_logger = logging.getLogger()
         root_logger.removeHandler(file_handler)
         file_handler.close()    

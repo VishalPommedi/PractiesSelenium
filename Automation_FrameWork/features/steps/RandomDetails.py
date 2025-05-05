@@ -19,4 +19,11 @@ def Random_names():
 
     return first_name, last_name, email_id, CreditCard_number, ZipCode, phone_number, AreCode, company_name
 
+# Below function is generates and return the employee id with company name and random numbers with length of 3 to 4 
+def generate_employee_id():
+    company_name = "org"
+    length_of_id = random.randint(2, 3)
+    employee_id = company_name + "_" + "".join(str(random.randint(1, 9)) for _ in range(length_of_id))
+    return employee_id
+
 

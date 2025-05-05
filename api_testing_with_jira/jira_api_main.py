@@ -69,7 +69,7 @@ class JiraAPITesting:
         query = {
             'projectId': projectId
             }
-
+        print(f'{self.baseUrl}{endPoint}')
         response = requests.get(f'{self.baseUrl}{endPoint}', auth=HTTPBasicAuth(self.emailId, self.apiKey), headers={"Accept": "application/json" }, params=query) 
         payload = response.json()
         if response.status_code == 200:
@@ -101,7 +101,7 @@ getIssueTypewithprojectId = "/rest/api/3/issuetype/project"
 
 obj = JiraAPITesting()
 projectName = "Learning Postman"
-ProjectID = obj.getParticularProjectId(getRecentProjects_endpoint, projectName)
+ProjectID = obj.getParticularProjectId(getRecentProjects_endpoint, "Automation test")
 print(ProjectID)
 
 obj.get_all_issues(getIssuesTypes_endpoint)

@@ -35,7 +35,9 @@ def orh_open_url(context):
         else:
             logging.warning("Login page is not visible")
     except Exception as e:
-        logging.error("The error occuredt at orh_open_url method. The error: ", e)  
+        logging.error("The error occuredt at orh_open_url method. The error: ", e)
+        capture_screenshot(context)
+        context.driver.quite()  
 
 @then("Login with user name, and password")
 def orh_enter_uname_pass(context):
@@ -83,6 +85,8 @@ def orh_click_about_button(context):
 
     except Exception as e:  
         logging.error(f"The error occured at orh_read_profile_data method. the error: {e}")  
+        capture_screenshot(context)
+        context.driver.quite()
 
 @then("Read the user data")
 def orh_read_profile_data(context):
@@ -136,7 +140,7 @@ def orh_logout(context):
             
         else:
             logging.warning("** unable to click on the logout button!!")
-
+        Configurator.after(context)
 
 
     except Exception as e:
