@@ -117,6 +117,15 @@ F_GearOptions_xpath = "//div[@class='submenu_option']//a"
 allMenuOPtions_xpath = '//div[@id="menu"]//ul//li//a[@class="menu_option"]'
 shppingSubMenu_xpath = "//div[@id='shipping_menu']//div//a"
 
+# $$$$$$$$$$$$$$$$$$$$$$$$$$$$$-Stores page-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+stores_head_xpath = '//div[@class="box_border"]//div//span'
+zipCode_input_xpath = "//input[@name='txtZip']"
+storesCity_input_xpath = '//input[@name="txtCity"]'
+selectState_button_xpath = "//select[@id='ddlStates']"
+selectStae_dropdown_values = "//select[@id='ddlStates']//option"
+findStore_button = "//input[@id='submit_find']"
+stores_head_text = "Find ACME Store Nearest You"
+nearestStore_data_xpath = "//table[@id='search_locator_result_table']//tr//td"
 
 
 

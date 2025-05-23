@@ -42,8 +42,14 @@ class RepeatSteps:
         time.sleep(3)
 
         return new_window
+    
+    # below method is used to select one option from the list (Pega)
+    def Select_button(self, context, button_name):
+        wait = WebDriverWait(context.driver, 10)
+        all_buttons = wait.until(EC.presence_of_all_elements_located((By.XPATH, Locators.Menu_Options_xpath)))
+        selected_button = next(button for button in all_buttons if button.text == button_name)
+        selected_button.click()
 
-import os
 
 def capture_screenshot(context):
     Configurator.beforeall(context)

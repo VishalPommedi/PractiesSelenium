@@ -1,3 +1,4 @@
+@pega
 Feature: login to Pega website with a valid user
   Scenario Outline: Login with given credentials
     Given I launch the Chrome Browser
