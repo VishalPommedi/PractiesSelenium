@@ -5,6 +5,8 @@ WebSite_URL = "https://training.openspan.com/login"
 # Web page Menu
 
 Menu_Options_xpath = "//div[@id='menu']//li/a"
+home_link_xpath = "//span[@id='home']"
+pega_log_xpath = "//div[@class='menu']//div[@id='logo']//a//img"
 
 # Stores
 Stores_StoreListing_xpath = "//a[normalize-space()='Store Listing']"

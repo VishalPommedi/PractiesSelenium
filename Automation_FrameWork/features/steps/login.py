@@ -85,3 +85,17 @@ def LogOut(context):
         time.sleep(5)
     except Exception as e:
         logging.error(f'The error occured at click on Sign Out Button. The error: {e}')
+
+@when(u'Nivaigate to the Home page')
+def navigate_to_homepage(context):
+    wait = WebDriverWait(context.driver, 10)
+    Configurator.beforeall(context)
+
+    try:
+        Home_link = context.driver.find_element(By.XPATH, Locators.home_link_xpath)
+        Home_link.click()
+        logging.info("Navigated to the home page")
+
+    except Exception as e:
+
+        logging.error(f"The error occured while navigating the home page. The error: {e}")            
